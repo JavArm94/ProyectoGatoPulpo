@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
+
 import Modelo.Butaca;
 import Modelo.Cine;
 import Modelo.Cliente;
@@ -142,7 +144,13 @@ public class ControladorUsuario implements MouseListener,ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		if(arg0.getSource()==vc.getButton()){
+			vc.getBusqueda_Usuario().setVisible(false);
+			vc.getUsuario_Registro().setVisible(true);
+		} else if(arg0.getSource()==vc.getBtnAtras()){
+			vc.getBusqueda_Usuario().setVisible(true);
+			vc.getUsuario_Registro().setVisible(false);
+		}
 	}
 
 

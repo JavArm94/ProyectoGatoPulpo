@@ -6,14 +6,14 @@ public class Funcion {
 	
 	private Pelicula peliculas; // arreglo de peliculas
 	private Integer horario;
-	private  ArrayList<Butaca> Cine = new ArrayList <Butaca>();
+	private  ArrayList<Butaca> Sala = new ArrayList <Butaca>();
 	
 	
-	public Funcion(Pelicula peliculas, Integer horario, ArrayList<Butaca> cine) {
+	public Funcion(Pelicula peliculas, Integer horario, ArrayList<Butaca> sala) {
 		super();
 		this.peliculas = peliculas;
 		this.horario = horario;
-		Cine = cine;
+		this.setSala(sala);
 	}
 	
 	public Pelicula getPeliculas() {
@@ -28,11 +28,14 @@ public class Funcion {
 	public void setHorario(Integer horario) {
 		this.horario = horario;
 	}
-	public ArrayList<Butaca> getCine() {
-		return Cine;
+
+	public ArrayList<Butaca> getSala() {
+		return Sala;
 	}
-	public void setCine(ArrayList<Butaca> cine) {
-		Cine = cine;
+
+	public void setSala(ArrayList<Butaca> sala) {
+		Sala = sala;
 	}
+
 	
 }

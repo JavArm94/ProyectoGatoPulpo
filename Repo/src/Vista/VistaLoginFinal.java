@@ -21,7 +21,7 @@ public class VistaLoginFinal extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtUsuario;
-	private JPasswordField txtContrasena;
+	private JTextField txtContrasena;
 	private JLabel lblUsuario;
 	private JLabel lblContrasea;
 	private JButton btnAceptar;

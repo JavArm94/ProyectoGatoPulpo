@@ -1,86 +1,62 @@
 package Vista;
 
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
-import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import Controlador.Controlador;
-public class VistaPrincipalFinal extends JFrame {
 
+import Controlador.ControladorPelicula;
+
+public class VistaPelicula extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private ImageIcon butaca_disponible = new ImageIcon(VistaPrincipalFinal.class.getResource("/Vista/butaca-disponible.png"));
-	private ImageIcon butaca_ocupada = new ImageIcon(VistaPrincipalFinal.class.getResource("/Vista/butaca-ocupada.png"));
-	private ImageIcon butaca_disponible_select = new ImageIcon(VistaPrincipalFinal.class.getResource("/Vista/butaca-disponible-select.png"));	
-	private ImageIcon butaca_ocupada_select = new ImageIcon(VistaPrincipalFinal.class.getResource("/Vista/butaca-ocupada-select.png"));
-	private ImageIcon imgCancelar = new ImageIcon(VistaPrincipalFinal.class.getResource("/Vista/icons8-delete.png"));
-	private ImageIcon imgModificar = new ImageIcon(VistaPrincipalFinal.class.getResource("/Vista/icon-modif.png"));
-	private ImageIcon imgRegresar = new ImageIcon(VistaPrincipalFinal.class.getResource("/Vista/icon-back.png"));
-	private ImageIcon imgAceptar = new ImageIcon(VistaPrincipalFinal.class.getResource("/Vista/icon-okay.png"));
+	private JPanel Pelicula;
+	private ImageIcon butaca_disponible = new ImageIcon(
+			VistaPelicula.class.getResource("/Vista/butaca-disponible.png"));
+	private ImageIcon butaca_ocupada = new ImageIcon(VistaPelicula.class.getResource("/Vista/butaca-ocupada.png"));
+	private ImageIcon butaca_disponible_select = new ImageIcon(
+			VistaPelicula.class.getResource("/Vista/butaca-disponible-select.png"));
+	private ImageIcon butaca_ocupada_select = new ImageIcon(
+			VistaPelicula.class.getResource("/Vista/butaca-ocupada-select.png"));
+	private ImageIcon imgCancelar = new ImageIcon(VistaPelicula.class.getResource("/Vista/icons8-delete.png"));
+	private ImageIcon imgModificar = new ImageIcon(VistaPelicula.class.getResource("/Vista/icon-modif.png"));
+	private ImageIcon imgRegresar = new ImageIcon(VistaPelicula.class.getResource("/Vista/icon-back.png"));
+	private ImageIcon imgAceptar = new ImageIcon(VistaPelicula.class.getResource("/Vista/icon-okay.png"));
 
-	
-	
-	/*	try {
-	Image imgCancelar= ImageIO.read(getClass().getResource("/Vista/icon-back.png"));
-} catch (IOException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}
-
-try {
-	Image imgModificar = ImageIO.read(getClass().getResource("resources/icon-okay.png"));
-} catch (IOException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}
-try {
-	Image imgRegresar = ImageIO.read(getClass().getResource("resources/icons8-delete.png"));
-} catch (IOException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}
-try {
-	Image imgAceptar = ImageIO.read(getClass().getResource("/Vista/icon-modif.png"));
-	btnNewButton_1.setIcon(new ImageIcon(imgAceptar));
-} catch (IOException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}**/
+	/*
+	 * try { Image imgCancelar=
+	 * ImageIO.read(getClass().getResource("/Vista/icon-back.png")); } catch
+	 * (IOException e) { // TODO Auto-generated catch block e.printStackTrace();
+	 * }
+	 * 
+	 * try { Image imgModificar =
+	 * ImageIO.read(getClass().getResource("resources/icon-okay.png")); } catch
+	 * (IOException e) { // TODO Auto-generated catch block e.printStackTrace();
+	 * } try { Image imgRegresar =
+	 * ImageIO.read(getClass().getResource("resources/icons8-delete.png")); }
+	 * catch (IOException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); } try { Image imgAceptar =
+	 * ImageIO.read(getClass().getResource("/Vista/icon-modif.png"));
+	 * btnNewButton_1.setIcon(new ImageIcon(imgAceptar)); } catch (IOException
+	 * e) { // TODO Auto-generated catch block e.printStackTrace(); }
+	 **/
 
 	private JPanel Cartelera_Usuario;
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTextField textField_8;
 	private JTextField textField_9;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
-	private JTextField textField_13;
-	private JTextField textField_14;
-	private JTextField textField_15;
-	private JTextField textField_16;
-	private Controlador controlador;
+	private ControladorPelicula controlador;
 	private JTextField textField_18;
 	private JTextField textField_17;
 	private JTextField textField_19;
@@ -195,75 +171,37 @@ try {
 	private JLabel label_32;
 	private JLabel label_33;
 	private JLabel lbld;
-	private JPanel panel;
-	private JLabel label;
-	private JLabel label_8;
-	private JLabel label_9;
-	private JLabel label_10;
-	private JLabel label_11;
-	private JLabel label_12;
-	private JLabel label_13;
-	private JTextField textField_2;
-	private JButton button_2;
-	private JButton button_3;
-	private JPanel panel_1;
-	private JButton button_4;
-	private JLabel label_14;
-	private JLabel label_15;
-	private JLabel label_16;
-	private JLabel label_17;
-	private JScrollPane scrollPane;
-	private JButton button_5;
-	private JButton button_6;
-	private JButton button_7;
-	
-	
-	
-/*	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-				
 
-				    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-				    
-					VistaPrincipalFinal frame = new VistaPrincipalFinal();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
+	/*
+	 * public static void main(String[] args) { EventQueue.invokeLater(new
+	 * Runnable() { public void run() { try {
+	 * 
+	 * 
+	 * UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+	 * 
+	 * VistaPrincipalFinal frame = new VistaPrincipalFinal();
+	 * frame.setVisible(true); } catch (Exception e) { e.printStackTrace(); } }
+	 * }); }
+	 */
 
-	
-	
-	public VistaPrincipalFinal(Controlador c) {
+	public VistaPelicula(ControladorPelicula controladorPelicula) {
 
-		
-		  //this generates an image file
-		 
-		
-		this.setControlador(c);
+		// this generates an image file
+
+		this.setControlador(controladorPelicula);
 		setMinimumSize(new Dimension(800, 480));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setToolTipText("Socio");
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		Pelicula = new JPanel();
+		Pelicula.setToolTipText("Socio");
+		Pelicula.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(Pelicula);
+		Pelicula.setLayout(null);
 		ImageIcon img = new ImageIcon("/Vista/GatoPulpo.png");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaPrincipalFinal.class.getResource("/Vista/GatoPulpo.jpg")));
-		
-		
-		JTabbedPane pestañas = new JTabbedPane(JTabbedPane.TOP);
-		pestañas.setBounds(0, 0, 784, 442);
-		pestañas.setToolTipText("Pesta\u00F1as");
-		contentPane.add(pestañas);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaPelicula.class.getResource("/Vista/GatoPulpo.jpg")));
 
-		 
-		//ImageIcon butaca_disponible = new ImageIcon(butacasVista.class.getResource("/Vista/butaca-disponible.png"));
+		// ImageIcon butaca_disponible = new
+		// ImageIcon(butacasVista.class.getResource("/Vista/butaca-disponible.png"));
 
 		Icon butaca_disponible_img = new ImageIcon(
 				butaca_disponible.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
@@ -273,641 +211,465 @@ try {
 				butaca_disponible_select.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
 		Icon butaca_ocupada_select_img = new ImageIcon(
 				butaca_ocupada_select.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
-		
-		JPanel tabPelicula = new JPanel();
-		pestañas.addTab("Pelicula", null, tabPelicula, null);
-		tabPelicula.setLayout(null);
-		tabPelicula.addMouseListener(getControlador());
-		
-														
-														Butacas_Usuario = new JPanel();
-														Butacas_Usuario.setBounds(0, 0, 779, 414);
-														Butacas_Usuario.addMouseListener(getControlador());
-														tabPelicula.add(Butacas_Usuario);										
-														Butacas_Usuario.setLayout(null);
-														Butacas_Usuario.setVisible(true);
-														//		ImageIcon butaca_reservada = new ImageIcon(butacasVista.class.getResource("/Vista/butaca-reservada.png"));
-														//Icon butaca_reservada_img = new ImageIcon(butaca_disponible.getImage().getScaledInstance(lblNewLabel.getWidth(),lblNewLabel.getHeight(),Image.SCALE_DEFAULT));
-															//	ImageIcon butaca_ocupada = new ImageIcon(butacasVista.class.getResource("/Vista/butaca-ocupada.png"));
-															//	Icon butaca_ocupada_img = new ImageIcon(butaca_disponible.getImage().getScaledInstance(lblNewLabel.getWidth(),lblNewLabel.getHeight(),Image.SCALE_DEFAULT));
-														
-														
-														// COMIENZO BUTACAS LABELS (21*3)
-																
-																label_20 = new JLabel("New label");
-																label_20.setBounds(82, 113, 40, 40);
-																label_20.setIcon(butaca_disponible_img);
-																label_20.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_20);
-																
-																
-																
-																label_21 = new JLabel("New label");
-																label_21.setBounds(82, 163, 40, 40);
-																label_21.setIcon(butaca_disponible_img);
-																label_21.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_21);
-																
-																label_28 = new JLabel("New label");
-																label_28.setIcon(butaca_disponible_img);
-																label_28.setBounds(82, 213, 40, 40);
-																label_28.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_28);
-																
-																label_29 = new JLabel("New label");
-																label_29.setIcon(butaca_disponible_img);
-																label_29.setBounds(82, 263, 40, 40);
-																label_29.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_29);
-																
-																label_34 = new JLabel("New label");
-																label_34.setIcon(butaca_disponible_img);
-																label_34.setBounds(82, 313, 40, 40);
-																label_34.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_34);
-																
-																
-																label_35 = new JLabel("New label");
-																label_35.setIcon(butaca_disponible_img);
-																label_35.setBounds(132, 63, 40, 40);
-																label_35.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_35);
-																
-																label_36 = new JLabel("New label");
-																label_36.setIcon(butaca_disponible_img);
-																label_36.addMouseListener(getControlador());
-																label_36.setBounds(132, 113, 40, 40);
-																Butacas_Usuario.add(label_36);
-																
-																label_37 = new JLabel("New label");
-																label_37.setIcon(butaca_disponible_img);
-																label_37.setBounds(132, 163, 40, 40);
-																label_37.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_37);
-																
-																label_38 = new JLabel("New label");
-																label_38.setIcon(butaca_disponible_img);
-																label_38.setBounds(132, 213, 40, 40);
-																label_38.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_38);
-																
-																label_39 = new JLabel("New label");
-																label_39.setIcon(butaca_disponible_img);
-																label_39.setBounds(132, 263, 40, 40);
-																label_39.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_39);
-																
-																label_40 = new JLabel("New label");
-																label_40.setIcon(butaca_disponible_img);
-																label_40.setBounds(132, 313, 40, 40);
-																label_40.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_40);
-																
-																label_41 = new JLabel("New label");
-																label_41.setIcon(butaca_disponible_img);
-																label_41.setBounds(182, 63, 40, 40);
-																label_41.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_41);
-																
-																label_42 = new JLabel("New label");
-																label_42.setIcon(butaca_disponible_img);
-																label_42.setBounds(182, 113, 40, 40);
-																label_42.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_42);
-																
-																label_43 = new JLabel("New label");
-																label_43.setIcon(butaca_disponible_img);
-																label_43.setBounds(182, 163, 40, 40);
-																label_43.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_43);
-																
-																label_44 = new JLabel("New label");
-																label_44.setIcon(butaca_disponible_img);
-																label_44.setBounds(182, 213, 40, 40);
-																label_44.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_44);
-																
-																label_45 = new JLabel("New label");
-																label_45.setIcon(butaca_disponible_img);
-																label_45.setBounds(182, 263, 40, 40);
-																label_45.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_45);
-																
-																label_46 = new JLabel("New label");
-																label_46.setIcon(butaca_disponible_img);
-																label_46.setBounds(182, 313, 40, 40);
-																label_46.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_46);
-																
-																label_47 = new JLabel("New label");
-																label_47.setIcon(butaca_disponible_img);
-																label_47.setBounds(368, 63, 40, 40);
-																label_47.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_47);
-																
-																label_48 = new JLabel("New label");
-																label_48.setIcon(butaca_disponible_img);
-																label_48.setBounds(318, 63, 40, 40);
-																label_48.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_48);
-																
-																label_49 = new JLabel("New label");
-																label_49.setIcon(butaca_disponible_img);
-																label_49.setBounds(318, 113, 40, 40);
-																label_49.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_49);
-																
-																label_50 = new JLabel("New label");
-																label_50.setIcon(butaca_disponible_img);
-																label_50.setBounds(368, 113, 40, 40);
-																label_50.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_50);
-																
-																label_51 = new JLabel("New label");
-																label_51.setIcon(butaca_disponible_img);
-																label_51.setBounds(418, 113, 40, 40);
-																label_51.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_51);
-																
-																label_52 = new JLabel("New label");
-																label_52.setIcon(butaca_disponible_img);
-																label_52.setBounds(418, 63, 40, 40);
-																label_52.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_52);
-																
-																label_53 = new JLabel("New label");
-																label_53.setIcon(butaca_disponible_img);
-																label_53.setBounds(418, 163, 40, 40);
-																label_53.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_53);
-																
-																label_54 = new JLabel("New label");
-																label_54.setIcon(butaca_disponible_img);
-																label_54.setBounds(368, 163, 40, 40);
-																label_54.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_54);
-																
-																label_55 = new JLabel("New label");
-																label_55.setIcon(butaca_disponible_img);
-																label_55.setBounds(318, 163, 40, 40);
-																label_55.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_55);
-																
-																label_56 = new JLabel("New label");
-																label_56.setIcon(butaca_disponible_img);
-																label_56.setBounds(318, 213, 40, 40);
-																label_56.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_56);
-																
-																label_57 = new JLabel("New label");
-																label_57.setIcon(butaca_disponible_img);
-																label_57.setBounds(368, 213, 40, 40);
-																label_57.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_57);
-																
-																label_58 = new JLabel("New label");
-																label_58.setIcon(butaca_disponible_img);
-																label_58.setBounds(418, 213, 40, 40);
-																label_58.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_58);
-																
-																label_59 = new JLabel("New label");
-																label_59.setIcon(butaca_disponible_img);
-																label_59.setBounds(418, 263, 40, 40);
-																label_59.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_59);
-																
-																label_60 = new JLabel("New label");
-																label_60.setIcon(butaca_disponible_img);
-																label_60.setBounds(368, 263, 40, 40);
-																label_60.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_60);
-																
-																label_61 = new JLabel("New label");
-																label_61.setBounds(318, 263, 40, 40);
-																label_61.setIcon(butaca_disponible_img);
-																label_61.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_61);
-																
-																label_62 = new JLabel("New label");		
-																label_62.setBounds(318, 313, 40, 40);
-																label_62.setIcon(butaca_disponible_img);
-																label_62.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_62);
-																
-																label_63 = new JLabel("New label");
-																label_63.setBounds(368, 313, 40, 40);
-																label_63.setIcon(butaca_disponible_img);
-																label_63.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_63);
-																
-																label_64 = new JLabel("New label");
-																label_64.setIcon(butaca_disponible_img);
-																label_64.setBounds(418, 313, 40, 40);
-																label_64.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_64);
-																
-																label_65 = new JLabel("New label");
-																label_65.setIcon(butaca_disponible_img);
-																label_65.setBounds(600, 63, 40, 40);
-																label_65.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_65);
-																
-																label_66 = new JLabel("New label");
-																label_66.setIcon(butaca_disponible_img);
-																label_66.setBounds(550, 63, 40, 40);
-																label_66.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_66);
-																
-																label_67 = new JLabel("New label");
-																label_67.setIcon(butaca_disponible_img);
-																label_67.setBounds(550, 113, 40, 40);
-																label_67.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_67);
-																
-																label_68 = new JLabel("New label");
-																label_68.setIcon(butaca_disponible_img);
-																label_68.setBounds(600, 113, 40, 40);
-																label_68.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_68);
-																
-																label_69 = new JLabel("New label");
-																label_69.setIcon(butaca_disponible_img);
-																label_69.setBounds(650, 113, 40, 40);
-																label_69.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_69);
-																
-																label_70 = new JLabel("New label");
-																label_70.setDisplayedMnemonic('9');
-																label_70.setIcon(butaca_disponible_img);
-																label_70.setBounds(650, 63, 40, 40);
-																label_70.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_70);
-																
-																label_71 = new JLabel("New label");
-																label_71.setIcon(butaca_disponible_img);
-																label_71.setBounds(650, 163, 40, 40);
-																label_71.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_71);
-																
-																label_72 = new JLabel("New label");
-																label_72.setIcon(butaca_disponible_img);
-																label_72.setBounds(600, 163, 40, 40);
-																label_72.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_72);
-																
-																label_73 = new JLabel("New label");
-																label_73.setIcon(butaca_disponible_img);
-																label_73.setBounds(550, 163, 40, 40);
-																label_73.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_73);
-																
-																label_74 = new JLabel("New label");
-																label_74.setIcon(butaca_disponible_img);
-																label_74.setBounds(550, 213, 40, 40);
-																label_74.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_74);
-																
-																label_75 = new JLabel("New label");
-																label_75.setIcon(butaca_disponible_img);
-																label_75.setBounds(600, 213, 40, 40);
-																label_75.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_75);
-																
-																label_76 = new JLabel("New label");
-																label_76.setIcon(butaca_disponible_img);
-																label_76.setBounds(650, 213, 40, 40);
-																label_76.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_76);
-																
-																label_77 = new JLabel("New label");
-																label_77.setIcon(butaca_disponible_img);
-																label_77.setBounds(650, 263, 40, 40);
-																label_77.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_77);
-																
-																label_78 = new JLabel("New label");
-																label_78.setIcon(butaca_disponible_img);
-																label_78.setBounds(600, 263, 40, 40);
-																label_78.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_78);
-																
-																label_79 = new JLabel("New label");
-																label_79.setIcon(butaca_disponible_img);
-																label_79.setBounds(550, 263, 40, 40);
-																label_79.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_79);
-																
-																label_80 = new JLabel("New label");
-																label_80.setIcon(butaca_disponible_img);
-																label_80.setBounds(550, 313, 40, 40);
-																label_80.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_80);
-																
-																label_81 = new JLabel("New label");
-																label_81.setIcon(butaca_disponible_img);
-																label_81.setBounds(600, 313, 40, 40);
-																label_81.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_81);
-																
-																label_82 = new JLabel("New label");
-																label_82.setIcon(butaca_disponible_img);
-																label_82.setBounds(650, 313, 40, 40);
-																label_82.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_82);
-																
-																label_83 = new JLabel("New label");
-																label_83.addMouseListener(getControlador());
-																//*/
-																label_83.setIcon(butaca_disponible_img);
-																label_83.setBounds(82, 63, 40, 40);
-																Butacas_Usuario.add(label_83);
-																lblFila = new JLabel("Fila 1");
-																lblFila.setBounds(132, 24, 46, 14);
-																Butacas_Usuario.add(lblFila);
-																
-																label_84 = new JLabel("Fila 2");
-																label_84.setBounds(368, 24, 46, 14);
-																label_84.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_84);
-																
-																label_85 = new JLabel("Fila 3");
-																label_85.setBounds(600, 24, 46, 14);
-																label_85.addMouseListener(getControlador());
-																Butacas_Usuario.add(label_85);
-																
-																btnNewButton = new JButton("Atras");
-																btnNewButton.setBounds(118, 364, 89, 23);
-																btnNewButton.addMouseListener(getControlador());
-																Butacas_Usuario.add(btnNewButton);
-																
-																btnVender = new JButton("Vender");
-																btnVender.setBounds(259, 364, 89, 23);
-																btnVender.addMouseListener(getControlador());
-																Butacas_Usuario.add(btnVender);
-																
-																btnReservar = new JButton("Reservar");
-																btnReservar.setBounds(428, 364, 89, 23);
-																btnReservar.addMouseListener(getControlador());
-																Butacas_Usuario.add(btnReservar);
-																
-																btnModificar = new JButton("Modificar");
-																btnModificar.setBounds(560, 364, 89, 23);
-																btnModificar.addMouseListener(getControlador());
-																Butacas_Usuario.add(btnModificar);
-																
-																Cartelera_Visualizacion = new JPanel();
-																Cartelera_Visualizacion.setLayout(null);
-																Cartelera_Visualizacion.setBounds(0, 0, 779, 414);
-																Cartelera_Visualizacion.setVisible(false);
-																tabPelicula.add(Cartelera_Visualizacion);
-																
-																textField_17 = new JTextField();
-																textField_17.setColumns(10);
-																textField_17.setBounds(89, 29, 86, 20);
-																textField_17.addMouseListener(getControlador());
-																Cartelera_Visualizacion.add(textField_17);
-																
-																textField_18 = new JTextField();
-																textField_18.setColumns(10);
-																textField_18.setBounds(252, 29, 86, 20);
-																textField_18.addMouseListener(getControlador());
-																Cartelera_Visualizacion.add(textField_18);
-																
-																textField_19 = new JTextField();
-																textField_19.setColumns(10);
-																textField_19.setBounds(415, 29, 86, 20);
-																textField_19.addMouseListener(getControlador());
-																Cartelera_Visualizacion.add(textField_19);
-																
-																button_8 = new JButton("Buscar");
-																button_8.setBounds(679, 28, 80, 23);
-																button_8.addMouseListener(getControlador());
-																Cartelera_Visualizacion.add(button_8);
-																
-																textField_20 = new JTextField();
-																textField_20.setColumns(10);
-																textField_20.setBounds(543, 29, 86, 20);
-																textField_20.addMouseListener(getControlador());
-																Cartelera_Visualizacion.add(textField_20);
-																
-																lblGenero = new JLabel("Genero:");
-																lblGenero.setBounds(185, 32, 57, 14);
-																lblGenero.addMouseListener(getControlador());
-																Cartelera_Visualizacion.add(lblGenero);
-																lblGenero.addMouseListener(getControlador());
-																
-																label_18 = new JLabel("Nombre:");
-																label_18.addMouseListener(getControlador());
-																label_18.setBounds(348, 32, 57, 14);
-																Cartelera_Visualizacion.add(label_18);
-																
-																label_19 = new JLabel("DNI:");
-																label_19.addMouseListener(getControlador());
-																label_19.setBounds(511, 32, 22, 14);
-																Cartelera_Visualizacion.add(label_19);
-																
-																lblPelicula = new JLabel("Pelicula:");
-																lblPelicula.addMouseListener(getControlador());
-																lblPelicula.setBounds(22, 32, 57, 14);
-																Cartelera_Visualizacion.add(lblPelicula);
-																
-																scrollPane_1 = new JScrollPane();
-																scrollPane_1.setBounds(10, 69, 759, 300);
-																scrollPane_1.addMouseListener(getControlador());
-																Cartelera_Visualizacion.add(scrollPane_1);
-																
-																button_9 = new JButton("Modificar");
-																button_9.setBounds(200, 380, 105, 23);
-																button_9.addMouseListener(getControlador());
-																Cartelera_Visualizacion.add(button_9);
-																
-																button_10 = new JButton("Agregar Nuevo");
-																button_10.setBounds(470, 380, 130, 23);
-																button_10.addMouseListener(getControlador());
-																Cartelera_Visualizacion.add(button_10);
-																
-																button_11 = new JButton("Borrar");
-																button_11.setBounds(339, 380, 86, 23);
-																button_11.addMouseListener(getControlador());
-																Cartelera_Visualizacion.add(button_11);
-		
-		JPanel tabUsuario = new JPanel();
-		pestañas.addTab("Usuario", null, tabUsuario, null);
-		tabUsuario.setLayout(null);
-		tabUsuario.addMouseListener(getControlador());
-		
-		panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBounds(0, 0, 779, 414);
-		panel.addMouseListener(getControlador());
-		
-		panel_1 = new JPanel();
-		panel_1.setLayout(null);
-		panel_1.setBounds(0, 0, 779, 414);
-		tabUsuario.add(panel_1);
-		panel_1.addMouseListener(getControlador());
-		panel_1.setVisible(false);
-		
-		textField_13 = new JTextField();
-		textField_13.setColumns(10);
-		textField_13.setBounds(89, 29, 86, 20);
-		textField_13.addMouseListener(getControlador());
-		panel_1.add(textField_13);
-		
-		textField_14 = new JTextField();
-		textField_14.setColumns(10);
-		textField_14.setBounds(252, 29, 86, 20);
-		textField_14.addMouseListener(getControlador());
-		panel_1.add(textField_14);
-		
-		textField_15 = new JTextField();
-		textField_15.setColumns(10);
-		textField_15.setBounds(415, 29, 86, 20);
-		textField_15.addMouseListener(getControlador());
-		panel_1.add(textField_15);
-		
-		button_4 = new JButton("Buscar");
-		button_4.setBounds(679, 28, 80, 23);
-		button_4.addMouseListener(getControlador());
-		panel_1.add(button_4);
-		
-		textField_16 = new JTextField();
-		textField_16.setColumns(10);
-		textField_16.setBounds(543, 29, 86, 20);
-		textField_16.addMouseListener(getControlador());
-		panel_1.add(textField_16);
-		
-		label_14 = new JLabel("Apellido:");
-		label_14.setBounds(185, 32, 57, 14);
-		label_14.addMouseListener(getControlador());
-		panel_1.add(label_14);
-		
-		label_15 = new JLabel("Nombre:");
-		label_15.setBounds(348, 32, 57, 14);
-		label_15.addMouseListener(getControlador());
-		panel_1.add(label_15);
-		
-		label_16 = new JLabel("DNI:");
-		label_16.setBounds(511, 32, 22, 14);
-		label_16.addMouseListener(getControlador());
-		panel_1.add(label_16);
-		
-		label_17 = new JLabel("Usuario:");
-		label_17.setBounds(22, 32, 57, 14);
-		label_17.addMouseListener(getControlador());
-		panel_1.add(label_17);
-		
-		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 69, 759, 300);
-		scrollPane.addMouseListener(getControlador());
-		panel_1.add(scrollPane);
-		
-		button_5 = new JButton("Modificar");
-		button_5.setBounds(200, 380, 105, 23);
-		button_5.addMouseListener(getControlador());
-		panel_1.add(button_5);
-		
-		button_6 = new JButton("Agregar Nuevo");
-		button_6.setBounds(470, 380, 130, 23);
-		button_6.addMouseListener(getControlador());
-		panel_1.add(button_6);
-		
-		button_7 = new JButton("Borrar");
-		button_7.setBounds(339, 380, 86, 23);
-		button_7.addMouseListener(getControlador());
-		panel_1.add(button_7);
-		tabUsuario.add(panel);
-		
-		label = new JLabel("Usuario:");
-		label.setBounds(168, 95, 123, 14);
-		label.addMouseListener(getControlador());
-		panel.add(label);
-		
-		label_8 = new JLabel("Apellido:");
-		label_8.setBounds(168, 120, 123, 14);
-		label_8.addMouseListener(getControlador());
-		panel.add(label_8);
-		
-		label_9 = new JLabel("Nombre:");
-		label_9.setBounds(168, 145, 123, 14);
-		label_9.addMouseListener(getControlador());
-		panel.add(label_9);
-		
-		label_10 = new JLabel("DNI:");
-		label_10.setBounds(168, 170, 123, 14);
-		label_10.addMouseListener(getControlador());
-		panel.add(label_10);
-		
-		label_11 = new JLabel("Fecha de Nacimiento:");
-		label_11.setBounds(168, 195, 123, 14);
-		label_11.addMouseListener(getControlador());
-		panel.add(label_11);
-		
-		label_12 = new JLabel("Telefono:");
-		label_12.setBounds(168, 220, 123, 14);
-		label_12.addMouseListener(getControlador());
-		panel.add(label_12);
-		
-		label_13 = new JLabel("Direccion:");
-		label_13.setBounds(168, 245, 123, 14);
-		label_13.addMouseListener(getControlador());
-		panel.add(label_13);
-		
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(301, 92, 289, 20);
-		textField_2.addMouseListener(getControlador());
-		panel.add(textField_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(301, 117, 289, 20);
-		textField_3.addMouseListener(getControlador());
-		panel.add(textField_3);
-		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(301, 167, 289, 20);
-		textField_4.addMouseListener(getControlador());
-		panel.add(textField_4);
-		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(301, 142, 289, 20);
-		textField_5.addMouseListener(getControlador());
-		panel.add(textField_5);
-		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(301, 192, 289, 20);
-		textField_10.addMouseListener(getControlador());
-		panel.add(textField_10);
-		
-		textField_11 = new JTextField();
-		textField_11.setColumns(10);
-		textField_11.setBounds(301, 242, 289, 20);
-		textField_11.addMouseListener(getControlador());
-		panel.add(textField_11);
-		
-		button_2 = new JButton("Atras");
-		button_2.setBounds(119, 344, 89, 23);
-		button_2.addMouseListener(getControlador());
-		panel.add(button_2);
-		
-		button_3 = new JButton("Guardar");
-		button_3.setBounds(508, 344, 89, 23);
-		button_3.addMouseListener(getControlador());
-		panel.add(button_3);
-		
-		textField_12 = new JTextField();
-		textField_12.setColumns(10);
-		textField_12.setBounds(301, 217, 289, 20);
-		textField_12.addMouseListener(getControlador());
-		panel.add(textField_12);
-		
-		
+
+		Object[][] data = {};
+
+		String[] columnNames = { "Id", "Nombre", "Nombre Original", "Fecha Ini", "Fecha Fin", "Genero", "Duración",
+				"Puntaje" };
+
+		Butacas_Usuario = new JPanel();
+		Butacas_Usuario.setBounds(0, 0, 779, 441);
+		Pelicula.add(Butacas_Usuario);
+		Butacas_Usuario.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.setLayout(null);
+		Butacas_Usuario.setVisible(true);
+		// ImageIcon butaca_reservada = new
+		// ImageIcon(butacasVista.class.getResource("/Vista/butaca-reservada.png"));
+		// Icon butaca_reservada_img = new
+		// ImageIcon(butaca_disponible.getImage().getScaledInstance(lblNewLabel.getWidth(),lblNewLabel.getHeight(),Image.SCALE_DEFAULT));
+		// ImageIcon butaca_ocupada = new
+		// ImageIcon(butacasVista.class.getResource("/Vista/butaca-ocupada.png"));
+		// Icon butaca_ocupada_img = new
+		// ImageIcon(butaca_disponible.getImage().getScaledInstance(lblNewLabel.getWidth(),lblNewLabel.getHeight(),Image.SCALE_DEFAULT));
+
+		// COMIENZO BUTACAS LABELS (21*3)
+
+		label_20 = new JLabel("New label");
+		label_20.setBounds(82, 113, 40, 40);
+		label_20.setIcon(butaca_disponible_img);
+		label_20.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_20);
+
+		label_21 = new JLabel("New label");
+		label_21.setBounds(82, 163, 40, 40);
+		label_21.setIcon(butaca_disponible_img);
+		label_21.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_21);
+
+		label_28 = new JLabel("New label");
+		label_28.setIcon(butaca_disponible_img);
+		label_28.setBounds(82, 213, 40, 40);
+		label_28.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_28);
+
+		label_29 = new JLabel("New label");
+		label_29.setIcon(butaca_disponible_img);
+		label_29.setBounds(82, 263, 40, 40);
+		label_29.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_29);
+
+		label_34 = new JLabel("New label");
+		label_34.setIcon(butaca_disponible_img);
+		label_34.setBounds(82, 313, 40, 40);
+		label_34.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_34);
+
+		label_35 = new JLabel("New label");
+		label_35.setIcon(butaca_disponible_img);
+		label_35.setBounds(132, 63, 40, 40);
+		label_35.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_35);
+
+		label_36 = new JLabel("New label");
+		label_36.setIcon(butaca_disponible_img);
+		label_36.addMouseListener(getControladorPelicula());
+		label_36.setBounds(132, 113, 40, 40);
+		Butacas_Usuario.add(label_36);
+
+		label_37 = new JLabel("New label");
+		label_37.setIcon(butaca_disponible_img);
+		label_37.setBounds(132, 163, 40, 40);
+		label_37.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_37);
+
+		label_38 = new JLabel("New label");
+		label_38.setIcon(butaca_disponible_img);
+		label_38.setBounds(132, 213, 40, 40);
+		label_38.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_38);
+
+		label_39 = new JLabel("New label");
+		label_39.setIcon(butaca_disponible_img);
+		label_39.setBounds(132, 263, 40, 40);
+		label_39.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_39);
+
+		label_40 = new JLabel("New label");
+		label_40.setIcon(butaca_disponible_img);
+		label_40.setBounds(132, 313, 40, 40);
+		label_40.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_40);
+
+		label_41 = new JLabel("New label");
+		label_41.setIcon(butaca_disponible_img);
+		label_41.setBounds(182, 63, 40, 40);
+		label_41.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_41);
+
+		label_42 = new JLabel("New label");
+		label_42.setIcon(butaca_disponible_img);
+		label_42.setBounds(182, 113, 40, 40);
+		label_42.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_42);
+
+		label_43 = new JLabel("New label");
+		label_43.setIcon(butaca_disponible_img);
+		label_43.setBounds(182, 163, 40, 40);
+		label_43.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_43);
+
+		label_44 = new JLabel("New label");
+		label_44.setIcon(butaca_disponible_img);
+		label_44.setBounds(182, 213, 40, 40);
+		label_44.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_44);
+
+		label_45 = new JLabel("New label");
+		label_45.setIcon(butaca_disponible_img);
+		label_45.setBounds(182, 263, 40, 40);
+		label_45.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_45);
+
+		label_46 = new JLabel("New label");
+		label_46.setIcon(butaca_disponible_img);
+		label_46.setBounds(182, 313, 40, 40);
+		label_46.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_46);
+
+		label_47 = new JLabel("New label");
+		label_47.setIcon(butaca_disponible_img);
+		label_47.setBounds(368, 63, 40, 40);
+		label_47.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_47);
+
+		label_48 = new JLabel("New label");
+		label_48.setIcon(butaca_disponible_img);
+		label_48.setBounds(318, 63, 40, 40);
+		label_48.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_48);
+
+		label_49 = new JLabel("New label");
+		label_49.setIcon(butaca_disponible_img);
+		label_49.setBounds(318, 113, 40, 40);
+		label_49.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_49);
+
+		label_50 = new JLabel("New label");
+		label_50.setIcon(butaca_disponible_img);
+		label_50.setBounds(368, 113, 40, 40);
+		label_50.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_50);
+
+		label_51 = new JLabel("New label");
+		label_51.setIcon(butaca_disponible_img);
+		label_51.setBounds(418, 113, 40, 40);
+		label_51.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_51);
+
+		label_52 = new JLabel("New label");
+		label_52.setIcon(butaca_disponible_img);
+		label_52.setBounds(418, 63, 40, 40);
+		label_52.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_52);
+
+		label_53 = new JLabel("New label");
+		label_53.setIcon(butaca_disponible_img);
+		label_53.setBounds(418, 163, 40, 40);
+		label_53.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_53);
+
+		label_54 = new JLabel("New label");
+		label_54.setIcon(butaca_disponible_img);
+		label_54.setBounds(368, 163, 40, 40);
+		label_54.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_54);
+
+		label_55 = new JLabel("New label");
+		label_55.setIcon(butaca_disponible_img);
+		label_55.setBounds(318, 163, 40, 40);
+		label_55.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_55);
+
+		label_56 = new JLabel("New label");
+		label_56.setIcon(butaca_disponible_img);
+		label_56.setBounds(318, 213, 40, 40);
+		label_56.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_56);
+
+		label_57 = new JLabel("New label");
+		label_57.setIcon(butaca_disponible_img);
+		label_57.setBounds(368, 213, 40, 40);
+		label_57.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_57);
+
+		label_58 = new JLabel("New label");
+		label_58.setIcon(butaca_disponible_img);
+		label_58.setBounds(418, 213, 40, 40);
+		label_58.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_58);
+
+		label_59 = new JLabel("New label");
+		label_59.setIcon(butaca_disponible_img);
+		label_59.setBounds(418, 263, 40, 40);
+		label_59.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_59);
+
+		label_60 = new JLabel("New label");
+		label_60.setIcon(butaca_disponible_img);
+		label_60.setBounds(368, 263, 40, 40);
+		label_60.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_60);
+
+		label_61 = new JLabel("New label");
+		label_61.setBounds(318, 263, 40, 40);
+		label_61.setIcon(butaca_disponible_img);
+		label_61.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_61);
+
+		label_62 = new JLabel("New label");
+		label_62.setBounds(318, 313, 40, 40);
+		label_62.setIcon(butaca_disponible_img);
+		label_62.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_62);
+
+		label_63 = new JLabel("New label");
+		label_63.setBounds(368, 313, 40, 40);
+		label_63.setIcon(butaca_disponible_img);
+		label_63.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_63);
+
+		label_64 = new JLabel("New label");
+		label_64.setIcon(butaca_disponible_img);
+		label_64.setBounds(418, 313, 40, 40);
+		label_64.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_64);
+
+		label_65 = new JLabel("New label");
+		label_65.setIcon(butaca_disponible_img);
+		label_65.setBounds(600, 63, 40, 40);
+		label_65.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_65);
+
+		label_66 = new JLabel("New label");
+		label_66.setIcon(butaca_disponible_img);
+		label_66.setBounds(550, 63, 40, 40);
+		label_66.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_66);
+
+		label_67 = new JLabel("New label");
+		label_67.setIcon(butaca_disponible_img);
+		label_67.setBounds(550, 113, 40, 40);
+		label_67.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_67);
+
+		label_68 = new JLabel("New label");
+		label_68.setIcon(butaca_disponible_img);
+		label_68.setBounds(600, 113, 40, 40);
+		label_68.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_68);
+
+		label_69 = new JLabel("New label");
+		label_69.setIcon(butaca_disponible_img);
+		label_69.setBounds(650, 113, 40, 40);
+		label_69.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_69);
+
+		label_70 = new JLabel("New label");
+		label_70.setDisplayedMnemonic('9');
+		label_70.setIcon(butaca_disponible_img);
+		label_70.setBounds(650, 63, 40, 40);
+		label_70.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_70);
+
+		label_71 = new JLabel("New label");
+		label_71.setIcon(butaca_disponible_img);
+		label_71.setBounds(650, 163, 40, 40);
+		label_71.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_71);
+
+		label_72 = new JLabel("New label");
+		label_72.setIcon(butaca_disponible_img);
+		label_72.setBounds(600, 163, 40, 40);
+		label_72.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_72);
+
+		label_73 = new JLabel("New label");
+		label_73.setIcon(butaca_disponible_img);
+		label_73.setBounds(550, 163, 40, 40);
+		label_73.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_73);
+
+		label_74 = new JLabel("New label");
+		label_74.setIcon(butaca_disponible_img);
+		label_74.setBounds(550, 213, 40, 40);
+		label_74.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_74);
+
+		label_75 = new JLabel("New label");
+		label_75.setIcon(butaca_disponible_img);
+		label_75.setBounds(600, 213, 40, 40);
+		label_75.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_75);
+
+		label_76 = new JLabel("New label");
+		label_76.setIcon(butaca_disponible_img);
+		label_76.setBounds(650, 213, 40, 40);
+		label_76.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_76);
+
+		label_77 = new JLabel("New label");
+		label_77.setIcon(butaca_disponible_img);
+		label_77.setBounds(650, 263, 40, 40);
+		label_77.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_77);
+
+		label_78 = new JLabel("New label");
+		label_78.setIcon(butaca_disponible_img);
+		label_78.setBounds(600, 263, 40, 40);
+		label_78.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_78);
+
+		label_79 = new JLabel("New label");
+		label_79.setIcon(butaca_disponible_img);
+		label_79.setBounds(550, 263, 40, 40);
+		label_79.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_79);
+
+		label_80 = new JLabel("New label");
+		label_80.setIcon(butaca_disponible_img);
+		label_80.setBounds(550, 313, 40, 40);
+		label_80.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_80);
+
+		label_81 = new JLabel("New label");
+		label_81.setIcon(butaca_disponible_img);
+		label_81.setBounds(600, 313, 40, 40);
+		label_81.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_81);
+
+		label_82 = new JLabel("New label");
+		label_82.setIcon(butaca_disponible_img);
+		label_82.setBounds(650, 313, 40, 40);
+		label_82.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_82);
+
+		label_83 = new JLabel("New label");
+		label_83.addMouseListener(getControladorPelicula());
+		// */
+		label_83.setIcon(butaca_disponible_img);
+		label_83.setBounds(82, 63, 40, 40);
+		Butacas_Usuario.add(label_83);
+		lblFila = new JLabel("Fila 1");
+		lblFila.setBounds(132, 24, 46, 14);
+		Butacas_Usuario.add(lblFila);
+
+		label_84 = new JLabel("Fila 2");
+		label_84.setBounds(368, 24, 46, 14);
+		label_84.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_84);
+
+		label_85 = new JLabel("Fila 3");
+		label_85.setBounds(600, 24, 46, 14);
+		label_85.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(label_85);
+
+		btnNewButton = new JButton("Atras");
+		btnNewButton.setBounds(118, 364, 89, 23);
+		btnNewButton.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(btnNewButton);
+
+		btnVender = new JButton("Vender");
+		btnVender.setBounds(259, 364, 89, 23);
+		btnVender.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(btnVender);
+
+		btnReservar = new JButton("Reservar");
+		btnReservar.setBounds(428, 364, 89, 23);
+		btnReservar.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(btnReservar);
+
+		btnModificar = new JButton("Modificar");
+		btnModificar.setBounds(560, 364, 89, 23);
+		btnModificar.addMouseListener(getControladorPelicula());
+		Butacas_Usuario.add(btnModificar);
+
+		Cartelera_Visualizacion = new JPanel();
+		Cartelera_Visualizacion.setBounds(0, 0, 779, 441);
+		Pelicula.add(Cartelera_Visualizacion);
+		Cartelera_Visualizacion.setLayout(null);
+		Cartelera_Visualizacion.setVisible(false);
+
+		textField_17 = new JTextField();
+		textField_17.setColumns(10);
+		textField_17.setBounds(89, 29, 86, 20);
+		textField_17.addMouseListener(getControladorPelicula());
+		Cartelera_Visualizacion.add(textField_17);
+
+		textField_18 = new JTextField();
+		textField_18.setColumns(10);
+		textField_18.setBounds(252, 29, 86, 20);
+		textField_18.addMouseListener(getControladorPelicula());
+		Cartelera_Visualizacion.add(textField_18);
+
+		textField_19 = new JTextField();
+		textField_19.setColumns(10);
+		textField_19.setBounds(415, 29, 86, 20);
+		textField_19.addMouseListener(getControladorPelicula());
+		Cartelera_Visualizacion.add(textField_19);
+
+		button_8 = new JButton("Buscar");
+		button_8.setBounds(679, 28, 80, 23);
+		button_8.addMouseListener(getControladorPelicula());
+		Cartelera_Visualizacion.add(button_8);
+
+		textField_20 = new JTextField();
+		textField_20.setColumns(10);
+		textField_20.setBounds(543, 29, 86, 20);
+		textField_20.addMouseListener(getControladorPelicula());
+		Cartelera_Visualizacion.add(textField_20);
+
+		lblGenero = new JLabel("Genero:");
+		lblGenero.setBounds(185, 32, 57, 14);
+		lblGenero.addMouseListener(getControladorPelicula());
+		Cartelera_Visualizacion.add(lblGenero);
+		lblGenero.addMouseListener(getControladorPelicula());
+
+		label_18 = new JLabel("Nombre:");
+		label_18.addMouseListener(getControladorPelicula());
+		label_18.setBounds(348, 32, 57, 14);
+		Cartelera_Visualizacion.add(label_18);
+
+		label_19 = new JLabel("DNI:");
+		label_19.addMouseListener(getControladorPelicula());
+		label_19.setBounds(511, 32, 22, 14);
+		Cartelera_Visualizacion.add(label_19);
+
+		lblPelicula = new JLabel("Pelicula:");
+		lblPelicula.addMouseListener(getControladorPelicula());
+		lblPelicula.setBounds(22, 32, 57, 14);
+		Cartelera_Visualizacion.add(lblPelicula);
+
+		JTable table = new JTable(data, columnNames);
+		scrollPane_1 = new JScrollPane(table);
+		scrollPane_1.setBounds(10, 69, 759, 300);
+		scrollPane_1.addMouseListener(getControladorPelicula());
+		Cartelera_Visualizacion.add(scrollPane_1);
+
+		button_9 = new JButton("Modificar");
+		button_9.setBounds(200, 380, 105, 23);
+		button_9.addMouseListener(getControladorPelicula());
+		Cartelera_Visualizacion.add(button_9);
+
+		button_10 = new JButton("Agregar Nuevo");
+		button_10.setBounds(470, 380, 130, 23);
+		button_10.addMouseListener(getControladorPelicula());
+		Cartelera_Visualizacion.add(button_10);
+
+		button_11 = new JButton("Borrar");
+		button_11.setBounds(339, 380, 86, 23);
+		button_11.addMouseListener(getControladorPelicula());
+		Cartelera_Visualizacion.add(button_11);
+
 	}
 
 	public ImageIcon getButaca_disponible() {
@@ -925,16 +687,14 @@ try {
 	public void setButaca_ocupada(ImageIcon butaca_ocupada) {
 		this.butaca_ocupada = butaca_ocupada;
 	}
-	
-	public Controlador getControlador() {
+
+	public ControladorPelicula getControladorPelicula() {
 		return controlador;
 	}
 
-	public void setControlador(Controlador c) {
-		this.controlador = c;
+	public void setControlador(ControladorPelicula controladorPelicula) {
+		this.controlador = controladorPelicula;
 	}
-	
-
 
 	public ImageIcon getButaca_disponible_select() {
 		return butaca_disponible_select;
@@ -1022,86 +782,6 @@ try {
 
 	public void setTextField_9(JTextField textField_9) {
 		this.textField_9 = textField_9;
-	}
-
-	public JTextField getTextField_3() {
-		return textField_3;
-	}
-
-	public void setTextField_3(JTextField textField_3) {
-		this.textField_3 = textField_3;
-	}
-
-	public JTextField getTextField_4() {
-		return textField_4;
-	}
-
-	public void setTextField_4(JTextField textField_4) {
-		this.textField_4 = textField_4;
-	}
-
-	public JTextField getTextField_5() {
-		return textField_5;
-	}
-
-	public void setTextField_5(JTextField textField_5) {
-		this.textField_5 = textField_5;
-	}
-
-	public JTextField getTextField_10() {
-		return textField_10;
-	}
-
-	public void setTextField_10(JTextField textField_10) {
-		this.textField_10 = textField_10;
-	}
-
-	public JTextField getTextField_11() {
-		return textField_11;
-	}
-
-	public void setTextField_11(JTextField textField_11) {
-		this.textField_11 = textField_11;
-	}
-
-	public JTextField getTextField_12() {
-		return textField_12;
-	}
-
-	public void setTextField_12(JTextField textField_12) {
-		this.textField_12 = textField_12;
-	}
-
-	public JTextField getTextField_13() {
-		return textField_13;
-	}
-
-	public void setTextField_13(JTextField textField_13) {
-		this.textField_13 = textField_13;
-	}
-
-	public JTextField getTextField_14() {
-		return textField_14;
-	}
-
-	public void setTextField_14(JTextField textField_14) {
-		this.textField_14 = textField_14;
-	}
-
-	public JTextField getTextField_15() {
-		return textField_15;
-	}
-
-	public void setTextField_15(JTextField textField_15) {
-		this.textField_15 = textField_15;
-	}
-
-	public JTextField getTextField_16() {
-		return textField_16;
-	}
-
-	public void setTextField_16(JTextField textField_16) {
-		this.textField_16 = textField_16;
 	}
 
 	public JTextField getTextField_18() {
@@ -2015,196 +1695,5 @@ try {
 	public void setLbld(JLabel lbld) {
 		this.lbld = lbld;
 	}
-
-	public JPanel getPanel() {
-		return panel;
-	}
-
-	public void setPanel(JPanel panel) {
-		this.panel = panel;
-	}
-
-	public JLabel getLabel() {
-		return label;
-	}
-
-	public void setLabel(JLabel label) {
-		this.label = label;
-	}
-
-	public JLabel getLabel_8() {
-		return label_8;
-	}
-
-	public void setLabel_8(JLabel label_8) {
-		this.label_8 = label_8;
-	}
-
-	public JLabel getLabel_9() {
-		return label_9;
-	}
-
-	public void setLabel_9(JLabel label_9) {
-		this.label_9 = label_9;
-	}
-
-	public JLabel getLabel_10() {
-		return label_10;
-	}
-
-	public void setLabel_10(JLabel label_10) {
-		this.label_10 = label_10;
-	}
-
-	public JLabel getLabel_11() {
-		return label_11;
-	}
-
-	public void setLabel_11(JLabel label_11) {
-		this.label_11 = label_11;
-	}
-
-	public JLabel getLabel_12() {
-		return label_12;
-	}
-
-	public void setLabel_12(JLabel label_12) {
-		this.label_12 = label_12;
-	}
-
-	public JLabel getLabel_13() {
-		return label_13;
-	}
-
-	public void setLabel_13(JLabel label_13) {
-		this.label_13 = label_13;
-	}
-
-	public JTextField getTextField_2() {
-		return textField_2;
-	}
-
-	public void setTextField_2(JTextField textField_2) {
-		this.textField_2 = textField_2;
-	}
-
-	public JButton getButton_2() {
-		return button_2;
-	}
-
-	public void setButton_2(JButton button_2) {
-		this.button_2 = button_2;
-	}
-
-	public JButton getButton_3() {
-		return button_3;
-	}
-
-	public void setButton_3(JButton button_3) {
-		this.button_3 = button_3;
-	}
-
-	public JPanel getPanel_1() {
-		return panel_1;
-	}
-
-	public void setPanel_1(JPanel panel_1) {
-		this.panel_1 = panel_1;
-	}
-
-	public JButton getButton_4() {
-		return button_4;
-	}
-
-	public void setButton_4(JButton button_4) {
-		this.button_4 = button_4;
-	}
-
-	public JLabel getLabel_14() {
-		return label_14;
-	}
-
-	public void setLabel_14(JLabel label_14) {
-		this.label_14 = label_14;
-	}
-
-	public JLabel getLabel_15() {
-		return label_15;
-	}
-
-	public void setLabel_15(JLabel label_15) {
-		this.label_15 = label_15;
-	}
-
-	public JLabel getLabel_16() {
-		return label_16;
-	}
-
-	public void setLabel_16(JLabel label_16) {
-		this.label_16 = label_16;
-	}
-
-	public JLabel getLabel_17() {
-		return label_17;
-	}
-
-	public void setLabel_17(JLabel label_17) {
-		this.label_17 = label_17;
-	}
-
-	public JScrollPane getScrollPane() {
-		return scrollPane;
-	}
-
-	public void setScrollPane(JScrollPane scrollPane) {
-		this.scrollPane = scrollPane;
-	}
-
-	public JButton getButton_5() {
-		return button_5;
-	}
-
-	public void setButton_5(JButton button_5) {
-		this.button_5 = button_5;
-	}
-
-	public JButton getButton_6() {
-		return button_6;
-	}
-
-	public void setButton_6(JButton button_6) {
-		this.button_6 = button_6;
-	}
-
-	public JButton getButton_7() {
-		return button_7;
-	}
-
-	public void setButton_7(JButton button_7) {
-		this.button_7 = button_7;
-	}
-
-	private static void addPopup(Component component, final JPopupMenu popup) {
-		component.addMouseListener(new MouseAdapter() {
-			
-			public void mousePressed(MouseEvent e) {
-				if (e.getButton()==MouseEvent.BUTTON1) {
-					showMenu(e);					
-					
-				}
-			}
-		/*	public void mouseReleased(MouseEvent e) {
-				if (e.isPopupTrigger()) {
-					showMenu(e);
-				}
-			}*/
-			private void showMenu(MouseEvent e) {
-				popup.show(e.getComponent(), e.getX(), e.getY());
-			}
-		});
-	}
-
-
-
 
 }

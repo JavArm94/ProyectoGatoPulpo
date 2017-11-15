@@ -15,10 +15,10 @@ import javax.swing.border.EmptyBorder;
 public class Butaca extends JLabel {
 
 	private JLabel butaca;
-	private ImageIcon butaca_disponible = new ImageIcon(VistaPrincipalFinal.class.getResource("/Vista/butaca-disponible.png"));
-	private ImageIcon butaca_ocupada = new ImageIcon(VistaPrincipalFinal.class.getResource("/Vista/butaca-ocupada.png"));
-	private ImageIcon butaca_disponible_select = new ImageIcon(VistaPrincipalFinal.class.getResource("/Vista/butaca-disponible-select.png"));	
-	private ImageIcon butaca_ocupada_select = new ImageIcon(VistaPrincipalFinal.class.getResource("/Vista/butaca-ocupada-select.png"));
+	private ImageIcon butaca_disponible = new ImageIcon(VistaPelicula.class.getResource("/Vista/butaca-disponible.png"));
+	private ImageIcon butaca_ocupada = new ImageIcon(VistaPelicula.class.getResource("/Vista/butaca-ocupada.png"));
+	private ImageIcon butaca_disponible_select = new ImageIcon(VistaPelicula.class.getResource("/Vista/butaca-disponible-select.png"));	
+	private ImageIcon butaca_ocupada_select = new ImageIcon(VistaPelicula.class.getResource("/Vista/butaca-ocupada-select.png"));
 
 	/**
 	 * Launch the application.

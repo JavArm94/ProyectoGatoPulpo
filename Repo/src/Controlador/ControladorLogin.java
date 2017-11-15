@@ -5,12 +5,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import ConexiónBase.Database;
 import Vista.VistaLoginFinal;
-import Vista.VistaPrincipalFinal;
+import Vista.VistaPelicula;
 
 public class ControladorLogin implements ActionListener {
 	private VistaLoginFinal vl;
 	private Database db; //Clase que contiene los métodos que consultan o utilizan la base de datos.
-	private Controlador c; //Controlador de la vista principal.
+	private ControladorPelicula c; //Controlador de la vista principal.
 	
 	public ControladorLogin(VistaLoginFinal vl) {
 		this.setVl(vl);
@@ -23,7 +23,7 @@ public class ControladorLogin implements ActionListener {
 		if (e.getActionCommand().equals("Aceptar")) {
 			if (db.estaUsuario(Integer.valueOf(vl.getTxtUsuario().getText()), vl.getTxtContrasena().getText())){
 				//JOptionPane.showMessageDialog(null, "Acceso permitido!");
-				VistaPrincipalFinal vp = new VistaPrincipalFinal(c);
+				VistaPelicula vp = new VistaPelicula(c);
 				vp.setVisible(true);
 			}
 			else {
@@ -46,11 +46,11 @@ public class ControladorLogin implements ActionListener {
 		this.db = db;
 	}
 
-	public Controlador getC() {
+	public ControladorPelicula getC() {
 		return c;
 	}
 
-	public void setC(Controlador c) {
+	public void setC(ControladorPelicula c) {
 		this.c = c;
 	}
 

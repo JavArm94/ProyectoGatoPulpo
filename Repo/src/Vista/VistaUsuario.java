@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class VistaUsuario extends JFrame {
 
@@ -29,6 +31,11 @@ public class VistaUsuario extends JFrame {
 	private JTextField txtContrasena_usuario;
 	private JButton btnGuardar;
 	private JButton btnAtras;
+	private JButton button;
+	private JButton button_1;
+	private JButton button_3;
+	private JPanel Busqueda_Usuario;
+	private JPanel Usuario_Registro;
 
 	public VistaUsuario(ControladorUsuario controladorUsuario) {
 		this.setControlador(controladorUsuario);
@@ -40,10 +47,23 @@ public class VistaUsuario extends JFrame {
 		setContentPane(Usuario);
 		Usuario.setLayout(null);
 		
-		JPanel Usuario_Registro = new JPanel();
-		Usuario_Registro.setBounds(0, 0, 784, 441);
+		Object[][] data = {
+		};
+
+		String[] columnNames = {"Id", 
+		                        "Nombre",
+		                        "Apellido",
+		                        "Dni",
+		                        "Telefono",
+		                        "Dirección",
+		                        "Privilegios"};
+		
+		
+		Usuario_Registro = new JPanel();
+		Usuario_Registro.setBounds(0, 0, 779, 441);
 		Usuario.add(Usuario_Registro);
 		Usuario_Registro.setLayout(null);
+		Usuario_Registro.setVisible(false);
 		
 		JLabel label = new JLabel("Usuario:");
 		label.setBounds(195, 87, 123, 14);
@@ -134,10 +154,11 @@ public class VistaUsuario extends JFrame {
 		lblContrasena_user.setBounds(195, 262, 100, 14);
 		Usuario_Registro.add(lblContrasena_user);
 		
-		JPanel Busqueda_Usuario = new JPanel();
-		Busqueda_Usuario.setBounds(0, 0, 784, 441);
+		Busqueda_Usuario = new JPanel();
+		Busqueda_Usuario.setBounds(0, 0, 779, 441);
 		Usuario.add(Busqueda_Usuario);
 		Busqueda_Usuario.setLayout(null);
+	
 		
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
@@ -180,24 +201,60 @@ public class VistaUsuario extends JFrame {
 		label_10.setBounds(22, 30, 57, 14);
 		Busqueda_Usuario.add(label_10);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 67, 759, 300);
-		Busqueda_Usuario.add(scrollPane);
-		
-		JButton button_3 = new JButton("Modificar");
-		button_3.addActionListener(getControlador());
-		button_3.setBounds(200, 378, 105, 23);
-		Busqueda_Usuario.add(button_3);
-		
-		JButton button_4 = new JButton("Agregar Nuevo");
-		button_4.setBounds(470, 378, 130, 23);
-		button_4.addActionListener(getControlador());
-		Busqueda_Usuario.add(button_4);
-		
-		JButton button_5 = new JButton("Borrar");
-		button_5.setBounds(339, 378, 86, 23);
-		button_5.addActionListener(getControlador());
-		Busqueda_Usuario.add(button_5);
+
+
+	 JTable table = new JTable(data, columnNames);
+	 table.setModel(new DefaultTableModel(
+	 	new Object[][] {
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 		{null, null, null, null, null, null, null},
+	 	},
+	 	new String[] {
+	 		"Id", "Nombre", "Apellido", "Dni", "Telefono", "Direcci\u00F3n", "Privilegios"
+	 	}
+	 	
+	 
+	 ));
+	 table.getColumnModel().getColumn(0).setPreferredWidth(22);
+	 table.getColumnModel().getColumn(1).setPreferredWidth(110);
+	 table.getColumnModel().getColumn(2).setPreferredWidth(110);
+	 table.getColumnModel().getColumn(3).setPreferredWidth(103);
+	 table.getColumnModel().getColumn(4).setPreferredWidth(90);
+	 table.getColumnModel().getColumn(5).setPreferredWidth(104);
+	 table.getColumnModel().getColumn(6).setPreferredWidth(57);
+	 JScrollPane scrollPane = new JScrollPane(table);
+	 scrollPane.setBounds(10, 67, 759, 300);
+	 Busqueda_Usuario.add(scrollPane);
+	 
+	 button_3 = new JButton("Modificar");
+	 button_3.addActionListener(getControlador());
+	 button_3.setBounds(200, 378, 105, 23);
+	 Busqueda_Usuario.add(button_3);
+	 
+	 button = new JButton("Agregar Nuevo");
+	 button.setBounds(470, 378, 130, 23);
+	 button.addActionListener(getControlador());
+	 Busqueda_Usuario.add(button);
+	 
+	 button_1 = new JButton("Borrar");
+	 button_1.setBounds(339, 378, 86, 23);
+	 button_1.addActionListener(getControlador());
+	 Busqueda_Usuario.add(button_1);
 	}
 
 	public ControladorUsuario getControlador() {
@@ -328,5 +385,44 @@ public class VistaUsuario extends JFrame {
 	public void setBtnAtras(JButton btnAtras) {
 		this.btnAtras = btnAtras;
 	}
-	
+
+	public JButton getButton() {
+		return button;
+	}
+
+	public void setButton(JButton button) {
+		this.button = button;
+	}
+
+	public JButton getButton_1() {
+		return button_1;
+	}
+
+	public void setButton_1(JButton button_1) {
+		this.button_1 = button_1;
+	}
+
+	public JButton getButton_3() {
+		return button_3;
+	}
+
+	public void setButton_3(JButton button_3) {
+		this.button_3 = button_3;
+	}
+
+	public JPanel getBusqueda_Usuario() {
+		return Busqueda_Usuario;
+	}
+
+	public void setBusqueda_Usuario(JPanel busqueda_Usuario) {
+		Busqueda_Usuario = busqueda_Usuario;
+	}
+
+	public JPanel getUsuario_Registro() {
+		return Usuario_Registro;
+	}
+
+	public void setUsuario_Registro(JPanel usuario_Registro) {
+		Usuario_Registro = usuario_Registro;
+	}
 }
