@@ -14,6 +14,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import java.awt.Component;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VistaNueva extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -21,20 +26,6 @@ public class VistaNueva extends JFrame {
 	private JPanel Contenedor;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
-	private JTextField textField_13;
-	private JTextField textField_14;
-	private JTextField textField_15;
 	private JButton Cerrar_Sesion;
 	private JButton Venta_B;
 	private JButton Informes_B;
@@ -51,6 +42,34 @@ public class VistaNueva extends JFrame {
 	private JPanel Ventas;
 	private JButton Venta_Usu;
 	private JButton Informe_Usu;
+	private JTextField usuario_Regi;
+	private JTextField nombre_Regi;
+	private JTextField apellido_Regi;
+	private JTextField dni_Regi;
+	private JTextField fecha_Nac_Regi;
+	private JTextField telefono_Regi;
+	private JTextField direccion_Regi;
+	private JTextField contraseña_Regi;
+	private JLabel Usuario_existe;
+	private JLabel numeros_check;
+	private JLabel numeros_check_1;
+	private JLabel letras_check;
+	private JLabel letras_check_1;
+	private JButton agregar_usuario_B;
+	private JLabel contraseña_Check;
+	private JButton atras_Regi;
+	private JButton Pelicula_B;
+	private JLabel año_pelicula_check;
+	private JTextField año_pelicula;
+	private JTextField usuario_TextField_UsuarioBusqueda;
+	private JTextField nombre_TextField_UsuarioBusqueda;
+	private JTextField apellido_TextField_UsuarioBusqueda;
+	private JTextField dni_TextField_UsuarioBusqueda;
+	private JLabel dni_check_Usuario;
+	private JLabel apellido_check_Usuario;
+	private JLabel nombre_check_Usuario;
+	private JLabel usuario_check_Usuario;
+	private JButton buscar_Usuario;
 
 	/**
 	 * Launch the application.
@@ -70,6 +89,160 @@ public class VistaNueva extends JFrame {
 		setContentPane(Contenedor);
 		Contenedor.setLayout(null);
 		
+		Usuario_Busqueda = new JPanel();
+		Usuario_Busqueda.setLayout(null);
+		Usuario_Busqueda.setBounds(0, 23, 784, 441);
+		Usuario_Busqueda.setVisible(false);
+		Contenedor.add(Usuario_Busqueda);
+		
+		usuario_TextField_UsuarioBusqueda = new JTextField();
+		usuario_TextField_UsuarioBusqueda.addFocusListener(getCn());
+		usuario_TextField_UsuarioBusqueda.setColumns(10);
+		usuario_TextField_UsuarioBusqueda.setBounds(89, 24, 86, 20);
+		Usuario_Busqueda.add(usuario_TextField_UsuarioBusqueda);
+		
+		nombre_TextField_UsuarioBusqueda = new JTextField();
+		nombre_TextField_UsuarioBusqueda.addFocusListener(getCn());
+		nombre_TextField_UsuarioBusqueda.setColumns(10);
+		nombre_TextField_UsuarioBusqueda.setBounds(252, 24, 86, 20);
+		Usuario_Busqueda.add(nombre_TextField_UsuarioBusqueda);
+		
+		apellido_TextField_UsuarioBusqueda = new JTextField();
+		apellido_TextField_UsuarioBusqueda.addFocusListener(getCn());
+		apellido_TextField_UsuarioBusqueda.setColumns(10);
+		apellido_TextField_UsuarioBusqueda.setBounds(415, 24, 86, 20);
+		Usuario_Busqueda.add(apellido_TextField_UsuarioBusqueda);
+		
+		buscar_Usuario = new JButton("Buscar");
+		buscar_Usuario.setBounds(679, 23, 80, 23);
+		buscar_Usuario.addActionListener(getCn());
+		Usuario_Busqueda.add(buscar_Usuario);
+		
+		dni_TextField_UsuarioBusqueda = new JTextField();
+		dni_TextField_UsuarioBusqueda.addFocusListener(getCn());
+		dni_TextField_UsuarioBusqueda.setColumns(10);
+		dni_TextField_UsuarioBusqueda.setBounds(543, 24, 86, 20);
+		Usuario_Busqueda.add(dni_TextField_UsuarioBusqueda);
+		
+		JLabel label_69 = new JLabel("Apellido:");
+		label_69.setBounds(348, 27, 57, 14);
+		Usuario_Busqueda.add(label_69);
+		
+		JLabel label_70 = new JLabel("Nombre:");
+		label_70.setBounds(185, 27, 57, 14);
+		Usuario_Busqueda.add(label_70);
+		
+		JLabel label_71 = new JLabel("DNI:");
+		label_71.setBounds(511, 27, 22, 14);
+		Usuario_Busqueda.add(label_71);
+		
+		JLabel label_72 = new JLabel("Usuario:");
+		label_72.setBounds(22, 27, 57, 14);
+		Usuario_Busqueda.add(label_72);
+		
+		JScrollPane scrollPane_1 = new JScrollPane((Component) null);
+		scrollPane_1.setBounds(10, 79, 759, 285);
+		Usuario_Busqueda.add(scrollPane_1);
+		
+		JButton button_18 = new JButton("Modificar");
+		button_18.setBounds(200, 375, 105, 23);
+		Usuario_Busqueda.add(button_18);
+		
+		agregar_usuario_B = new JButton("Agregar Nuevo");
+		agregar_usuario_B.setBounds(470, 375, 130, 23);
+		agregar_usuario_B.addActionListener(getCn());
+		Usuario_Busqueda.add(agregar_usuario_B);
+		
+		JButton button_20 = new JButton("Borrar");
+		button_20.setBounds(339, 375, 86, 23);
+		Usuario_Busqueda.add(button_20);
+		
+		dni_check_Usuario = new JLabel("");
+		dni_check_Usuario.setForeground(Color.RED);
+		dni_check_Usuario.setBounds(511, 54, 153, 14);
+		Usuario_Busqueda.add(dni_check_Usuario);
+		
+		apellido_check_Usuario = new JLabel("");
+		apellido_check_Usuario.setForeground(Color.RED);
+		apellido_check_Usuario.setBounds(348, 54, 153, 14);
+		Usuario_Busqueda.add(apellido_check_Usuario);
+		
+		nombre_check_Usuario = new JLabel("");
+		nombre_check_Usuario.setForeground(Color.RED);
+		nombre_check_Usuario.setBounds(185, 55, 153, 14);
+		Usuario_Busqueda.add(nombre_check_Usuario);
+		
+		usuario_check_Usuario = new JLabel("");
+		usuario_check_Usuario.setForeground(Color.RED);
+		usuario_check_Usuario.setBounds(22, 54, 153, 14);
+		Usuario_Busqueda.add(usuario_check_Usuario);
+		
+		JButton checkButton = new JButton("");
+	    
+		checkButton.setBounds(639, 23, 22, 23);
+		checkButton.setVisible(false);
+		Usuario_Busqueda.add(checkButton);
+		
+	
+		
+		Pelicula_Cartelera = new JPanel();
+		Pelicula_Cartelera.setBounds(0, 23, 784, 441);
+		Contenedor.add(Pelicula_Cartelera);
+		Pelicula_Cartelera.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(88, 21, 86, 20);
+		Pelicula_Cartelera.add(textField);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(251, 21, 86, 20);
+		Pelicula_Cartelera.add(textField_1);
+		
+		año_pelicula = new JTextField();
+		año_pelicula.setColumns(10);
+		año_pelicula.addFocusListener(getCn());
+		año_pelicula.setBounds(392, 21, 86, 20);
+		Pelicula_Cartelera.add(año_pelicula);
+		
+		JButton button = new JButton("Buscar");
+		button.setBounds(624, 31, 80, 23);
+		Pelicula_Cartelera.add(button);
+		
+		JLabel label = new JLabel("Genero:");
+		label.setBounds(184, 24, 57, 14);
+		Pelicula_Cartelera.add(label);
+		
+		JLabel lblAo = new JLabel("A\u00F1o:");
+		lblAo.setBounds(347, 24, 35, 14);
+		Pelicula_Cartelera.add(lblAo);
+		
+		JLabel label_3 = new JLabel("Pelicula:");
+		label_3.setBounds(21, 24, 57, 14);
+		Pelicula_Cartelera.add(label_3);
+		
+		JScrollPane scrollPane = new JScrollPane((Component) null);
+		scrollPane.setBounds(10, 77, 759, 300);
+		Pelicula_Cartelera.add(scrollPane);
+		
+		JButton button_1 = new JButton("Modificar");
+		button_1.setBounds(200, 388, 105, 23);
+		Pelicula_Cartelera.add(button_1);
+		
+		JButton button_2 = new JButton("Agregar Nuevo");
+		button_2.setBounds(470, 388, 130, 23);
+		Pelicula_Cartelera.add(button_2);
+		
+		JButton button_3 = new JButton("Borrar");
+		button_3.setBounds(339, 388, 86, 23);
+		Pelicula_Cartelera.add(button_3);
+		
+		año_pelicula_check = new JLabel("");
+		año_pelicula_check.setForeground(Color.RED);
+		año_pelicula_check.setBounds(347, 52, 120, 14);
+		Pelicula_Cartelera.add(año_pelicula_check);
+		
 		Usuario_Registro = new JPanel();
 		Usuario_Registro.setBounds(0, 23, 784, 441);
 		Contenedor.add(Usuario_Registro);
@@ -77,84 +250,120 @@ public class VistaNueva extends JFrame {
 		Usuario_Registro.setLayout(null);
 		
 		JLabel label_61 = new JLabel("Usuario:");
-		label_61.setBounds(194, 87, 123, 14);
+		label_61.setBounds(173, 88, 123, 14);
 		Usuario_Registro.add(label_61);
 		
 		JLabel label_62 = new JLabel("Apellido:");
-		label_62.setBounds(194, 112, 123, 14);
+		label_62.setBounds(173, 138, 123, 14);
 		Usuario_Registro.add(label_62);
 		
 		JLabel label_63 = new JLabel("Nombre:");
-		label_63.setBounds(194, 137, 123, 14);
+		label_63.setBounds(173, 113, 123, 14);
 		Usuario_Registro.add(label_63);
 		
 		JLabel label_64 = new JLabel("DNI:");
-		label_64.setBounds(194, 162, 123, 14);
+		label_64.setBounds(173, 163, 123, 14);
 		Usuario_Registro.add(label_64);
 		
 		JLabel label_65 = new JLabel("Fecha de Nacimiento:");
-		label_65.setBounds(194, 187, 123, 14);
+		label_65.setBounds(173, 188, 123, 14);
 		Usuario_Registro.add(label_65);
 		
 		JLabel label_66 = new JLabel("Telefono:");
-		label_66.setBounds(194, 212, 123, 14);
+		label_66.setBounds(173, 213, 123, 14);
 		Usuario_Registro.add(label_66);
 		
 		JLabel label_67 = new JLabel("Direccion:");
-		label_67.setBounds(194, 237, 123, 14);
+		label_67.setBounds(173, 238, 123, 14);
 		Usuario_Registro.add(label_67);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(327, 84, 289, 20);
-		Usuario_Registro.add(textField_4);
+		usuario_Regi = new JTextField();
+		usuario_Regi.addFocusListener(getCn());
+		usuario_Regi.setColumns(10);
+		usuario_Regi.setBounds(306, 85, 289, 20);
+		Usuario_Registro.add(usuario_Regi);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(327, 109, 289, 20);
-		Usuario_Registro.add(textField_5);
+		nombre_Regi = new JTextField();
+		nombre_Regi.addFocusListener(getCn());
+		nombre_Regi.setColumns(10);
+		nombre_Regi.setBounds(306, 110, 289, 20);
+		Usuario_Registro.add(nombre_Regi);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(327, 159, 289, 20);
-		Usuario_Registro.add(textField_6);
+		dni_Regi = new JTextField();
+		dni_Regi.addFocusListener(getCn());
+		dni_Regi.setColumns(10);
+		dni_Regi.setBounds(306, 160, 289, 20);
+		Usuario_Registro.add(dni_Regi);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(327, 134, 289, 20);
-		Usuario_Registro.add(textField_7);
+		apellido_Regi = new JTextField();
+		apellido_Regi.addFocusListener(getCn());
+		apellido_Regi.setColumns(10);
+		apellido_Regi.setBounds(306, 135, 289, 20);
+		Usuario_Registro.add(apellido_Regi);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(327, 184, 289, 20);
-		Usuario_Registro.add(textField_8);
+		fecha_Nac_Regi = new JTextField();
+		fecha_Nac_Regi.setColumns(10);
+		fecha_Nac_Regi.setBounds(306, 185, 289, 20);
+		Usuario_Registro.add(fecha_Nac_Regi);
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(327, 234, 289, 20);
-		Usuario_Registro.add(textField_9);
+		direccion_Regi = new JTextField();
+		direccion_Regi.setColumns(10);
+		direccion_Regi.setBounds(306, 235, 289, 20);
+		Usuario_Registro.add(direccion_Regi);
 		
-		JButton button_15 = new JButton("Atras");
-		button_15.setBounds(145, 336, 89, 23);
-		Usuario_Registro.add(button_15);
+		atras_Regi = new JButton("Atras");
+		atras_Regi.setBounds(145, 336, 89, 23);
+		atras_Regi.addActionListener(getCn());
+		Usuario_Registro.add(atras_Regi);
 		
 		JButton button_16 = new JButton("Guardar");
 		button_16.setBounds(534, 336, 89, 23);
 		Usuario_Registro.add(button_16);
 		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(327, 209, 289, 20);
-		Usuario_Registro.add(textField_10);
+		telefono_Regi = new JTextField();
+		telefono_Regi.addFocusListener(getCn());
+		telefono_Regi.setColumns(10);
+		telefono_Regi.setBounds(306, 210, 289, 20);
+		Usuario_Registro.add(telefono_Regi);
 		
-		textField_11 = new JTextField();
-		textField_11.setColumns(10);
-		textField_11.setBounds(327, 259, 289, 20);
-		Usuario_Registro.add(textField_11);
+		contraseña_Regi = new JTextField();
+		contraseña_Regi.setColumns(10);
+		contraseña_Regi.setBounds(306, 260, 289, 20);
+		Usuario_Registro.add(contraseña_Regi);
 		
 		JLabel label_68 = new JLabel("Contrase\u00F1a:");
-		label_68.setBounds(194, 262, 100, 14);
+		label_68.setBounds(173, 263, 100, 14);
 		Usuario_Registro.add(label_68);
+		
+		Usuario_existe = new JLabel("");
+		Usuario_existe.setForeground(Color.RED);
+		Usuario_existe.setBounds(605, 88, 150, 14);
+		Usuario_Registro.add(Usuario_existe);
+		
+		numeros_check = new JLabel("");
+		numeros_check.setForeground(Color.RED);
+		numeros_check.setBounds(605, 113, 150, 14);
+		Usuario_Registro.add(numeros_check);
+		
+		numeros_check_1 = new JLabel("");
+		numeros_check_1.setForeground(Color.RED);
+		numeros_check_1.setBounds(605, 138, 150, 14);
+		Usuario_Registro.add(numeros_check_1);
+		
+		letras_check = new JLabel("");
+		letras_check.setForeground(Color.RED);
+		letras_check.setBounds(605, 163, 150, 14);
+		Usuario_Registro.add(letras_check);
+		
+		letras_check_1 = new JLabel("");
+		letras_check_1.setForeground(Color.RED);
+		letras_check_1.setBounds(605, 213, 150, 14);
+		Usuario_Registro.add(letras_check_1);
+		
+		contraseña_Check = new JLabel("");
+		contraseña_Check.setForeground(Color.RED);
+		contraseña_Check.setBounds(605, 263, 150, 14);
+		Usuario_Registro.add(contraseña_Check);
 		
 		Entrada = new JPanel();
 		Entrada.setLayout(null);
@@ -167,68 +376,6 @@ public class VistaNueva extends JFrame {
 		Socio.setVisible(false);
 		Contenedor.add(Socio);
 		Socio.setLayout(null);
-		
-		Usuario_Busqueda = new JPanel();
-		Usuario_Busqueda.setLayout(null);
-		Usuario_Busqueda.setBounds(0, 23, 784, 441);
-		Usuario_Busqueda.setVisible(false);
-		Contenedor.add(Usuario_Busqueda);
-		
-		textField_12 = new JTextField();
-		textField_12.setColumns(10);
-		textField_12.setBounds(89, 24, 86, 20);
-		Usuario_Busqueda.add(textField_12);
-		
-		textField_13 = new JTextField();
-		textField_13.setColumns(10);
-		textField_13.setBounds(252, 24, 86, 20);
-		Usuario_Busqueda.add(textField_13);
-		
-		textField_14 = new JTextField();
-		textField_14.setColumns(10);
-		textField_14.setBounds(415, 24, 86, 20);
-		Usuario_Busqueda.add(textField_14);
-		
-		JButton button_17 = new JButton("Buscar");
-		button_17.setBounds(679, 23, 80, 23);
-		Usuario_Busqueda.add(button_17);
-		
-		textField_15 = new JTextField();
-		textField_15.setColumns(10);
-		textField_15.setBounds(543, 24, 86, 20);
-		Usuario_Busqueda.add(textField_15);
-		
-		JLabel label_69 = new JLabel("Apellido:");
-		label_69.setBounds(185, 27, 57, 14);
-		Usuario_Busqueda.add(label_69);
-		
-		JLabel label_70 = new JLabel("Nombre:");
-		label_70.setBounds(348, 27, 57, 14);
-		Usuario_Busqueda.add(label_70);
-		
-		JLabel label_71 = new JLabel("DNI:");
-		label_71.setBounds(511, 27, 22, 14);
-		Usuario_Busqueda.add(label_71);
-		
-		JLabel label_72 = new JLabel("Usuario:");
-		label_72.setBounds(22, 27, 57, 14);
-		Usuario_Busqueda.add(label_72);
-		
-		JScrollPane scrollPane_1 = new JScrollPane((Component) null);
-		scrollPane_1.setBounds(10, 64, 759, 300);
-		Usuario_Busqueda.add(scrollPane_1);
-		
-		JButton button_18 = new JButton("Modificar");
-		button_18.setBounds(200, 375, 105, 23);
-		Usuario_Busqueda.add(button_18);
-		
-		JButton button_19 = new JButton("Agregar Nuevo");
-		button_19.setBounds(470, 375, 130, 23);
-		Usuario_Busqueda.add(button_19);
-		
-		JButton button_20 = new JButton("Borrar");
-		button_20.setBounds(339, 375, 86, 23);
-		Usuario_Busqueda.add(button_20);
 		
 		Pelicula_Butacas = new JPanel();
 		Pelicula_Butacas.setBounds(0, 23, 784, 441);
@@ -481,67 +628,6 @@ public class VistaNueva extends JFrame {
 		button_7.setBounds(562, 393, 89, 23);
 		Pelicula_Butacas.add(button_7);
 		
-		Pelicula_Cartelera = new JPanel();
-		Pelicula_Cartelera.setBounds(0, 23, 784, 441);
-		Contenedor.add(Pelicula_Cartelera);
-		Pelicula_Cartelera.setLayout(null);
-		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(89, 37, 86, 20);
-		Pelicula_Cartelera.add(textField);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(252, 37, 86, 20);
-		Pelicula_Cartelera.add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(415, 37, 86, 20);
-		Pelicula_Cartelera.add(textField_2);
-		
-		JButton button = new JButton("Buscar");
-		button.setBounds(679, 36, 80, 23);
-		Pelicula_Cartelera.add(button);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(543, 37, 86, 20);
-		Pelicula_Cartelera.add(textField_3);
-		
-		JLabel label = new JLabel("Genero:");
-		label.setBounds(185, 40, 57, 14);
-		Pelicula_Cartelera.add(label);
-		
-		JLabel label_1 = new JLabel("Nombre:");
-		label_1.setBounds(348, 40, 57, 14);
-		Pelicula_Cartelera.add(label_1);
-		
-		JLabel label_2 = new JLabel("DNI:");
-		label_2.setBounds(511, 40, 22, 14);
-		Pelicula_Cartelera.add(label_2);
-		
-		JLabel label_3 = new JLabel("Pelicula:");
-		label_3.setBounds(22, 40, 57, 14);
-		Pelicula_Cartelera.add(label_3);
-		
-		JScrollPane scrollPane = new JScrollPane((Component) null);
-		scrollPane.setBounds(10, 77, 759, 300);
-		Pelicula_Cartelera.add(scrollPane);
-		
-		JButton button_1 = new JButton("Modificar");
-		button_1.setBounds(200, 388, 105, 23);
-		Pelicula_Cartelera.add(button_1);
-		
-		JButton button_2 = new JButton("Agregar Nuevo");
-		button_2.setBounds(470, 388, 130, 23);
-		Pelicula_Cartelera.add(button_2);
-		
-		JButton button_3 = new JButton("Borrar");
-		button_3.setBounds(339, 388, 86, 23);
-		Pelicula_Cartelera.add(button_3);
-		
 		Informe = new JPanel();
 		Informe.setLayout(null);
 		Informe.setBounds(0, 23, 784, 441);
@@ -556,31 +642,36 @@ public class VistaNueva extends JFrame {
 		
 		Cerrar_Sesion = new JButton("Cerrar sesion");
 		Cerrar_Sesion.addActionListener(getCn());
+		
+		Pelicula_B = new JButton("Pelicula");
+		Pelicula_B.setBounds(0, 0, 97, 23);
+		Pelicula_B.addActionListener(getCn());
+		Contenedor.add(Pelicula_B);
 		Cerrar_Sesion.setBounds(663, 0, 121, 23);
 		Contenedor.add(Cerrar_Sesion);
 		
 		Venta_B = new JButton("Ventas");
-		Venta_B.setBounds(531, 0, 133, 23);
+		Venta_B.setBounds(542, 0, 121, 23);
 		Venta_B.addActionListener(getCn());
 		Contenedor.add(Venta_B);
 		
 		Informes_B = new JButton("Informes");
-		Informes_B.setBounds(397, 0, 133, 23);
+		Informes_B.setBounds(422, 0, 121, 23);
 		Informes_B.addActionListener(getCn());
 		Contenedor.add(Informes_B);
 		
 		Socio_B = new JButton("Socio");
-		Socio_B.setBounds(264, 0, 133, 23);
+		Socio_B.setBounds(309, 0, 114, 23);
 		Socio_B.addActionListener(getCn());
 		Contenedor.add(Socio_B);
 		
 		Usuario_B = new JButton("Usuario");
-		Usuario_B.setBounds(132, 0, 133, 23);
+		Usuario_B.setBounds(203, 0, 107, 23);
 		Usuario_B.addActionListener(getCn());
 		Contenedor.add(Usuario_B);
 		
 		Precio_Entrada_B = new JButton("Precio Entrada");
-		Precio_Entrada_B.setBounds(0, 0, 133, 23);
+		Precio_Entrada_B.setBounds(96, 0, 108, 23);
 		Precio_Entrada_B.addActionListener(getCn());
 		Contenedor.add(Precio_Entrada_B);
 		
@@ -733,5 +824,229 @@ public class VistaNueva extends JFrame {
 
 	public void setInforme_Usu(JButton informe_Usu) {
 		Informe_Usu = informe_Usu;
+	}
+
+	public JTextField getUsuario_Regi() {
+		return usuario_Regi;
+	}
+
+	public void setUsuario_Regi(JTextField usuario_Regi) {
+		usuario_Regi = usuario_Regi;
+	}
+
+	public JTextField getNombre_Regi() {
+		return nombre_Regi;
+	}
+
+	public void setNombre_Regi(JTextField nombre_Regi) {
+		nombre_Regi = nombre_Regi;
+	}
+
+	public JTextField getApellido_Regi() {
+		return apellido_Regi;
+	}
+
+	public void setApellido_Regi(JTextField apellido_Regi) {
+		apellido_Regi = apellido_Regi;
+	}
+
+	public JTextField getDni_Regi() {
+		return dni_Regi;
+	}
+
+	public void setDni_Regi(JTextField dni_Regi) {
+		dni_Regi = dni_Regi;
+	}
+
+	public JTextField getFecha_Nac_Regi() {
+		return fecha_Nac_Regi;
+	}
+
+	public void setFecha_Nac_Regi(JTextField fecha_Nac_Regi) {
+		fecha_Nac_Regi = fecha_Nac_Regi;
+	}
+
+	public JTextField getTelefono_Regi() {
+		return telefono_Regi;
+	}
+
+	public void setTelefono_Regi(JTextField telefono_Regi) {
+		telefono_Regi = telefono_Regi;
+	}
+
+	public JTextField getDireccion_Regi() {
+		return direccion_Regi;
+	}
+
+	public void setDireccion_Regi(JTextField direccion_Regi) {
+		direccion_Regi = direccion_Regi;
+	}
+
+	public JTextField getContraseña_Regi() {
+		return contraseña_Regi;
+	}
+
+	public void setContraseña_Regi(JTextField contraseña_Regi) {
+		contraseña_Regi = contraseña_Regi;
+	}
+
+	public JLabel getUsuario_existe() {
+		return Usuario_existe;
+	}
+
+	public void setUsuario_existe(JLabel usuario_existe) {
+		Usuario_existe = usuario_existe;
+	}
+
+	public JLabel getNumeros_check() {
+		return numeros_check;
+	}
+
+	public void setNumeros_check(JLabel numeros_check) {
+		this.numeros_check = numeros_check;
+	}
+
+	public JLabel getNumeros_check_1() {
+		return numeros_check_1;
+	}
+
+	public void setNumeros_check_1(JLabel numeros_check_1) {
+		this.numeros_check_1 = numeros_check_1;
+	}
+
+	public JLabel getLetras_check() {
+		return letras_check;
+	}
+
+	public void setLetras_check(JLabel letras_check) {
+		this.letras_check = letras_check;
+	}
+
+	public JLabel getLetras_check_1() {
+		return letras_check_1;
+	}
+
+	public void setLetras_check_1(JLabel letras_check_1) {
+		this.letras_check_1 = letras_check_1;
+	}
+
+	public JButton getAgregar_usuario_B() {
+		return agregar_usuario_B;
+	}
+
+	public void setAgregar_usuario_B(JButton agregar_usuario_B) {
+		this.agregar_usuario_B = agregar_usuario_B;
+	}
+
+	public JLabel getContraseña_Check() {
+		return contraseña_Check;
+	}
+
+	public void setContraseña_Check(JLabel contraseña_Check) {
+		this.contraseña_Check = contraseña_Check;
+	}
+
+	public JButton getAtras_Regi() {
+		return atras_Regi;
+	}
+
+	public void setAtras_Regi(JButton atras_Regi) {
+		this.atras_Regi = atras_Regi;
+	}
+
+	public JButton getPelicula_B() {
+		return Pelicula_B;
+	}
+
+	public void setPelicula_B(JButton pelicula_B) {
+		Pelicula_B = pelicula_B;
+	}
+
+	public JLabel getAño_pelicula_check() {
+		return año_pelicula_check;
+	}
+
+	public void setAño_pelicula_check(JLabel año_pelicula_check) {
+		this.año_pelicula_check = año_pelicula_check;
+	}
+
+	public JTextField getAño_pelicula() {
+		return año_pelicula;
+	}
+
+	public void setAño_pelicula(JTextField año_pelicula) {
+		this.año_pelicula = año_pelicula;
+	}
+
+	public JTextField getUsuario_TextField_UsuarioBusqueda() {
+		return usuario_TextField_UsuarioBusqueda;
+	}
+
+	public void setUsuario_TextField_UsuarioBusqueda(JTextField usuario_TextField_UsuarioBusqueda) {
+		this.usuario_TextField_UsuarioBusqueda = usuario_TextField_UsuarioBusqueda;
+	}
+
+	public JTextField getNombre_TextField_UsuarioBusqueda() {
+		return nombre_TextField_UsuarioBusqueda;
+	}
+
+	public void setNombre_TextField_UsuarioBusqueda(JTextField nombre_TextField_UsuarioBusqueda) {
+		this.nombre_TextField_UsuarioBusqueda = nombre_TextField_UsuarioBusqueda;
+	}
+
+	public JTextField getApellido_TextField_UsuarioBusqueda() {
+		return apellido_TextField_UsuarioBusqueda;
+	}
+
+	public void setApellido_TextField_UsuarioBusqueda(JTextField apellido_TextField_UsuarioBusqueda) {
+		this.apellido_TextField_UsuarioBusqueda = apellido_TextField_UsuarioBusqueda;
+	}
+
+	public JTextField getDni_TextField_UsuarioBusqueda() {
+		return dni_TextField_UsuarioBusqueda;
+	}
+
+	public void setDni_TextField_UsuarioBusqueda(JTextField dni_TextField_UsuarioBusqueda) {
+		this.dni_TextField_UsuarioBusqueda = dni_TextField_UsuarioBusqueda;
+	}
+
+	public JLabel getDni_check_Usuario() {
+		return dni_check_Usuario;
+	}
+
+	public void setDni_check_Usuario(JLabel dni_check_Usuario) {
+		this.dni_check_Usuario = dni_check_Usuario;
+	}
+
+	public JLabel getApellido_check_Usuario() {
+		return apellido_check_Usuario;
+	}
+
+	public void setApellido_check_Usuario(JLabel apellido_check_Usuario) {
+		this.apellido_check_Usuario = apellido_check_Usuario;
+	}
+
+	public JLabel getNombre_check_Usuario() {
+		return nombre_check_Usuario;
+	}
+
+	public void setNombre_check_Usuario(JLabel nombre_check_Usuario) {
+		this.nombre_check_Usuario = nombre_check_Usuario;
+	}
+
+	public JLabel getUsuario_check_Usuario() {
+		return usuario_check_Usuario;
+	}
+
+	public void setUsuario_check_Usuario(JLabel usuario_check_Usuario) {
+		this.usuario_check_Usuario = usuario_check_Usuario;
+	}
+
+	public JButton getBuscar_Usuario() {
+		return buscar_Usuario;
+	}
+
+	public void setBuscar_Usuario(JButton buscar_Usuario) {
+		this.buscar_Usuario = buscar_Usuario;
 	}
 }
